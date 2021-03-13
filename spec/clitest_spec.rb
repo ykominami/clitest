@@ -5,7 +5,14 @@ RSpec.describe Clitest do
     expect(Clitest::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  context "create instance of class" do
+    context "Cmdline" do
+      before(:each)  do
+        @cmdline = Cmdline.new
+      end
+      it "create instance" do
+        expect(@cmdline).not_to eq(nil)
+      end
+    end
   end
 end

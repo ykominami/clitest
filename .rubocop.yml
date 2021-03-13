@@ -1,5 +1,21 @@
+inherit_from: .rubocop_todo.yml
+
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.4
+
+  #AllCops:
+#  NewCops: enable
+
+# 日本語のコメントを OK とする
+Style/AsciiComments:
+  Enabled: false
+
+# 一行に 120 文字まで書いても OK とする
+#Metrics/LineLength:
+#  Max: 120
+Layout/LineLength:
+  Max: 120
 
 Style/StringLiterals:
   Enabled: true
@@ -9,5 +25,14 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
-Layout/LineLength:
-  Max: 120
+# frozen_string_literal: trueが付かないようにする
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Naming/VariableNumber:
+  EnforcedStyle: 'snake_case'
+
+# class documentation commentのアラートを出さない
+Documentation:
+  Enabled: false
+
