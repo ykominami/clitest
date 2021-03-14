@@ -4,9 +4,12 @@ module Clitest
   require "pathname"
 
   class Cmdline
+    CMD = "cmd.sh"
+    BIN_DIR = "bin"
+
     def initialize(test_dir, *target_cmds)
-      bin_pn = Pathname.new(__FILE__).parent.parent.parent + 'bin'
-      @test_cmd_path_pn = bin_pn + 'cmd.sh'
+      bin_pn = Pathname.new(__FILE__).parent.parent.parent + BIN_DIR
+      @test_cmd_path_pn = bin_pn + CMD
       @test_dir_pn = Pathname.new(test_dir)
       @target_cmd = target_cmds
     end
