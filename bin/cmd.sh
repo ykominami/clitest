@@ -16,7 +16,7 @@ function do_test()
 # test_dir result_file target_cmd target_dir args
 # bash /home/ykominami/repo/clitest/bin/cmd.sh 
 # /home/ykominami/repo/clitest/spec/test cmd1 ls  result.txt
-echo $*
+#echo $*
 test_dir=$1
 shift
 result_file=$1
