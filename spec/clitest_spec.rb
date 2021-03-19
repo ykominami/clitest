@@ -18,7 +18,7 @@ RSpec.describe Clitest do
   let(:optionx) { nil }
   let(:param_name) { nil }
 
-  let(:cmdline_0) { Clitest::Cmdline.new(bin_dir, test_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_0) { Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2) }
   it "has a version number" do
     expect(Clitest::VERSION).not_to be nil
   end
@@ -30,7 +30,7 @@ RSpec.describe Clitest do
   context "create instance of class" do
     context "Cmdline" do
       before(:each) do
-        @cmdline = Clitest::Cmdline.new(bin_dir, test_dir)
+        @cmdline = Clitest::Cmdline.new(bin_dir, nil, test_dir)
       end
       it "create instance" do
         expect(@cmdline).not_to eq(nil)

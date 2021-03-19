@@ -8,9 +8,12 @@ module Clitest
 
     CMD = "cmd.sh"
 
-    def initialize(bin_dir, test_dir, *target_cmds)
+    def initialize(bin_dir, cmd_name, test_dir, *target_cmds)
       bin_pn = Pathname.new(bin_dir)
-      @test_cmd_path_pn = bin_pn + CMD
+      if cmd_name == nil
+	cmd_name = CMD
+      end
+      @test_cmd_path_pn = bin_pn + cmd_name
       @test_dir_pn = Pathname.new(test_dir)
       @target_cmd = target_cmds
     end

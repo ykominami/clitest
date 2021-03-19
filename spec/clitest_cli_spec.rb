@@ -18,7 +18,7 @@ RSpec.describe "command-line", type: :aruba do
   let(:optionx) { nil }
   let(:param_name) { nil }
 
-  let(:cmdline_0) { Clitest::Cmdline.new(bin_dir, test_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_0) { Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2) }
 
   context "exec" do
     context "test_cmd_1" do
