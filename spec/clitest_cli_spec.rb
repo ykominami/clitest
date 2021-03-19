@@ -18,10 +18,11 @@ RSpec.describe "command-line", type: :aruba do
   let(:optionx) { nil }
   let(:param_name) { nil }
 
-  let(:cmdline_0) { Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_0) { Clitest::Cmdline.new(nil, nil, test_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_1) { Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2) }
 
   context "exec" do
-    context "test_cmd_1" do
+    context "test_cmd_1 with nil and anil" do
       before(:each) do
         target_dir = "cmd1"
         cmdline = cmdline_0.make_cmdline_1(target_dir, result, optionx, param_name)
@@ -33,10 +34,33 @@ RSpec.describe "command-line", type: :aruba do
       #      it '', test_normal_sh_out:true do expect(last_command_started).to have_output(/error:/) end
     end
 
-    context "test_cmd_2" do
+    context "test_cmd_2 with nil and nil" do
       before(:each) do
         target_dir = "cmd2"
         cmdline = cmdline_0.make_cmdline_2(target_dir, result, optionx, param_name)
+        run_command("bash #{cmdline}")
+      end
+
+      it "", test_normal_sh: true do expect(last_command_started).to be_successfully_executed end
+      it "", test_normal_sh_out: true do expect(last_command_started).not_to have_output(/error:/) end
+    end
+
+    context "test_cmd_1 with bin dir and anil" do
+      before(:each) do
+        target_dir = "cmd1"
+        cmdline = cmdline_1.make_cmdline_1(target_dir, result, optionx, param_name)
+        run_command("bash #{cmdline}")
+      end
+
+      it "", test_normal_sh: true do expect(last_command_started).to be_successfully_executed end
+      it "", test_normal_sh_out: true do expect(last_command_started).not_to have_output(/error:/) end
+      #      it '', test_normal_sh_out:true do expect(last_command_started).to have_output(/error:/) end
+    end
+
+    context "test_cmd_2 with bin dir and nil" do
+      before(:each) do
+        target_dir = "cmd2"
+        cmdline = cmdline_1.make_cmdline_2(target_dir, result, optionx, param_name)
         run_command("bash #{cmdline}")
       end
 
