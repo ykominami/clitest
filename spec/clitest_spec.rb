@@ -8,8 +8,8 @@ RSpec.describe Clitest do
   let(:spec_dir) { top_dir_pn.to_s }
   let(:top_dir_pn) { spec_dir_pn.parent }
   let(:top_dir) { top_dir_pn.to_s }
-  let(:test_dir_pn) { spec_dir_pn + "test" }
-  let(:test_dir) { test_dir_pn.to_s }
+  let(:test_root_dir_pn) { spec_dir_pn + "test" }
+  let(:test_root_dir) { test_root_dir_pn.to_s }
   let(:bin_dir_pn) { top_dir_pn + "bin" }
   let(:bin_dir) { bin_dir_pn.to_s }
   let(:test_cmd_1) { "ls" }
@@ -18,8 +18,8 @@ RSpec.describe Clitest do
   let(:optionx) { nil }
   let(:param_name) { nil }
 
-  let(:cmdline_0) { Clitest::Cmdline.new(nil, nil, test_dir, test_cmd_1, test_cmd_2) }
-  let(:cmdline_1) { Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_0) { Clitest::Cmdline.new(nil, nil, test_root_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_1) { Clitest::Cmdline.new(bin_dir, nil, test_root_dir, test_cmd_1, test_cmd_2) }
   it "has a version number" do
     expect(Clitest::VERSION).not_to be nil
   end
@@ -31,7 +31,7 @@ RSpec.describe Clitest do
   context "create instance of class" do
     context "Cmdline nil nil" do
       before(:each) do
-        @cmdline = Clitest::Cmdline.new(nil, nil, test_dir, test_cmd_1, test_cmd_2)
+        @cmdline = Clitest::Cmdline.new(nil, nil, test_root_dir, test_cmd_1, test_cmd_2)
       end
       it "create instance with nil and nil" do
         expect(@cmdline).not_to eq(nil)
@@ -41,7 +41,7 @@ RSpec.describe Clitest do
 
     context "Cmdline bin_dir nil" do
       before(:each) do
-        @cmdline = Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2)
+        @cmdline = Clitest::Cmdline.new(bin_dir, nil, test_root_dir, test_cmd_1, test_cmd_2)
       end
       it "create instance with bin dir and nil" do
         expect(@cmdline).not_to eq(nil)

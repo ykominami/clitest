@@ -8,8 +8,8 @@ RSpec.describe "command-line", type: :aruba do
   let(:spec_dir) { top_dir_pn.to_s }
   let(:top_dir_pn) { spec_dir_pn.parent }
   let(:top_dir) { top_dir_pn.to_s }
-  let(:test_dir_pn) { spec_dir_pn + "test" }
-  let(:test_dir) { test_dir_pn.to_s }
+  let(:test_root_dir_pn) { spec_dir_pn + "test" }
+  let(:test_root_dir) { test_root_dir_pn.to_s }
   let(:bin_dir_pn) { top_dir_pn + "bin" }
   let(:bin_dir) { bin_dir_pn.to_s }
   let(:test_cmd_1) { "ls" }
@@ -18,8 +18,8 @@ RSpec.describe "command-line", type: :aruba do
   let(:optionx) { nil }
   let(:param_name) { nil }
 
-  let(:cmdline_0) { Clitest::Cmdline.new(nil, nil, test_dir, test_cmd_1, test_cmd_2) }
-  let(:cmdline_1) { Clitest::Cmdline.new(bin_dir, nil, test_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_0) { Clitest::Cmdline.new(nil, nil, test_root_dir, test_cmd_1, test_cmd_2) }
+  let(:cmdline_1) { Clitest::Cmdline.new(bin_dir, nil, test_root_dir, test_cmd_1, test_cmd_2) }
 
   context "exec" do
     context "test_cmd_1 with nil and anil" do
