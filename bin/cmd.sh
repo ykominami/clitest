@@ -22,7 +22,10 @@ test_root_dir=$1
 shift
 result_file=$1
 shift
-target_dir=$2
+target_cmd=$1
+shift
+target_dir=$1
+shift
 target_path="${test_root_dir}/${target_dir}"
 if [ ! -d ${target_path} ];then
    mkdir -p ${target_path}
@@ -33,9 +36,7 @@ if [ ! -f ${result_path} ]; then
    touch ${result_path}
 fi
 
-target_cmd=$1
-shift
-pushd $1
-shift
-do_test $* | tee $result_path
+#echo "target_path=${target_path}"
+pushd $target_path
+do_test $target_cmd $* | tee $result_path
 exit $?
