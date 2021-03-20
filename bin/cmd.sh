@@ -7,16 +7,11 @@
 
 function do_test()
 {
-   target_cmd=$1
-   shift
-   pushd $1
-   shift
    echo "##### ${target_cmd} $*  #####"
    $target_cmd $*
-   exit_code=$?
-   popd
+   ret_code=$?
 
-   return $exit_code
+   return $ret_code
 }
 
 # test_dir result_file target_cmd target_dir args
@@ -28,7 +23,7 @@ shift
 result_file=$1
 shift
 target_dir=$2
-target_path=${test_root_dir}/${target_dir}
+target_path="${test_root_dir}/${target_dir}"
 if [ ! -d ${target_path} ];then
    mkdir -p ${target_path}
 fi
@@ -38,5 +33,9 @@ if [ ! -f ${result_path} ]; then
    touch ${result_path}
 fi
 
+target_cmd=$1
+shift
+pushd $1
+shift
 do_test $* | tee $result_path
 exit $?
