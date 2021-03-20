@@ -13,7 +13,7 @@ RSpec.describe "command-line", type: :aruba do
   let(:bin_dir_pn) { top_dir_pn + "bin" }
   let(:bin_dir) { bin_dir_pn.to_s }
   let(:test_cmd_1) { "ls" }
-  let(:test_cmd_2) { "data" }
+  let(:test_cmd_2) { "date" }
   let(:result) { "result.txt" }
   let(:optionx) { nil }
   let(:param_name) { nil }
