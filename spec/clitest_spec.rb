@@ -8,9 +8,9 @@ RSpec.describe Clitest do
   let(:spec_dir) { top_dir_pn.to_s }
   let(:top_dir_pn) { spec_dir_pn.parent }
   let(:top_dir) { top_dir_pn.to_s }
-  let(:test_root_dir_pn) { spec_dir_pn + "test" }
+  let(:test_root_dir_pn) { spec_dir_pn.join("test") }
   let(:test_root_dir) { test_root_dir_pn.to_s }
-  let(:bin_dir_pn) { top_dir_pn + "bin" }
+  let(:bin_dir_pn) { top_dir_pn.join("bin") }
   let(:bin_dir) { bin_dir_pn.to_s }
   let(:test_cmd_1) { "ls" }
   let(:test_cmd_2) { "data" }
@@ -35,7 +35,7 @@ RSpec.describe Clitest do
       end
       it "create instance with nil and nil" do
         expect(@cmdline).not_to eq(nil)
-#        expect(@cmdline).to eq(nil)
+        # expect(@cmdline).to eq(nil)
       end
     end
 
@@ -45,7 +45,7 @@ RSpec.describe Clitest do
       end
       it "create instance with bin dir and nil" do
         expect(@cmdline).not_to eq(nil)
-#        expect(@cmdline).to eq(nil)
+        # expect(@cmdline).to eq(nil)
       end
     end
   end
@@ -57,13 +57,15 @@ RSpec.describe Clitest do
       @ret_cmd_0 = cmdline_0.make_cmdline_base(test_cmd_1, target_1_dir, result, optionx, param_name)
       @ret_cmd_1 = cmdline_0.make_cmdline_1(target_1_dir, result, optionx, param_name)
       @ret_cmd_2 = cmdline_0.make_cmdline_2(target_2_dir, result, optionx, param_name)
-      @args_1 = "/home/ykominami/repo/clitest/bin/cmd.sh /home/ykominami/repo/clitest/spec/test #{result} #{test_cmd_1} cmd1"
-      @args_2 = "/home/ykominami/repo/clitest/bin/cmd.sh /home/ykominami/repo/clitest/spec/test #{result} #{test_cmd_2} cmd2"
+      cmd_path = "/home/ykominami/repo/clitest/bin/cmd.sh"
+      test_dir = "/home/ykominami/repo/clitest/spec/test"
+      @args_1 = "#{cmd_path} #{test_dir} #{result} #{test_cmd_1} cmd1"
+      @args_2 = "#{cmd_path} #{test_dir} #{result} #{test_cmd_2} cmd2"
     end
 
     it "of test_cmd_0" do
       expect(@ret_cmd_0).not_to eq(nil)
-#      expect(@ret_cmd_0).not_to include("cmd.sh")
+      # expect(@ret_cmd_0).not_to include("cmd.sh")
       expect(@ret_cmd_0).to include("cmd.sh")
     end
     it "of test_cmd_1" do

@@ -8,9 +8,9 @@ RSpec.describe "command-line", type: :aruba do
   let(:spec_dir) { top_dir_pn.to_s }
   let(:top_dir_pn) { spec_dir_pn.parent }
   let(:top_dir) { top_dir_pn.to_s }
-  let(:test_root_dir_pn) { spec_dir_pn + "test" }
+  let(:test_root_dir_pn) { spec_dir_pn.join("test") }
   let(:test_root_dir) { test_root_dir_pn.to_s }
-  let(:bin_dir_pn) { top_dir_pn + "bin" }
+  let(:bin_dir_pn) { top_dir_pn.join("bin") }
   let(:bin_dir) { bin_dir_pn.to_s }
   let(:test_cmd_1) { "ls" }
   let(:test_cmd_2) { "date" }

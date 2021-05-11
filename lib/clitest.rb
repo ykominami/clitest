@@ -5,7 +5,7 @@ require_relative "clitest/cmdline"
 require "pathname"
 
 module Clitest
-  BIN_DIR_PN = Pathname.new(__FILE__).parent.parent + "bin"
+  BIN_DIR_PN = Pathname.new(__FILE__).parent.parent.join("bin")
 
   class Error < StandardError; end
   # Your code goes here...
