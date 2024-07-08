@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "bin"
   # spec.executables   = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.executables   = ["cmd.sh"]
+  spec.executables   = ["cmd.sh", "clitest"]
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
