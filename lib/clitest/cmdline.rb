@@ -17,7 +17,7 @@ module Clitest
     #   result_file: 実行ファイルの実行結果を格納するファイルの名前
     #   target_cmd: 実行ファイルの名前（ここで指定した名前で実行ファイルを呼び出せる必要がある-絶対パスまたは環境変数PATHでパスが指定されていること）
     #   target_dir: 実行ファイルを呼び出すときのディレクトリ（test_root_dirからの相対パス）
-    CMD = "cmd.sh"
+    CMD = "clitest"
 
     # Cmdlineクラスのコンストラクタ
     # @param [String] bin_dir 実行ファイルを呼び出すシェルスクリプトを置くbinディレクトリ
