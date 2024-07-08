@@ -1,17 +1,5 @@
 pn = Pathname.new(__FILE__)
 target_pn = pn.parent.join("cmd.sh").expand_path
 
-=begin
-puts target_pn.to_s
-
-# system( "#{target_pn.to_s} #{*ARGSV}" ) 
-# system( "#{target_pn.to_s} #{ARGV[0]}" ) 
-p ARGV[0]
-p ARGV[1]
-p ARGV[2]
-
-puts ARGV.join(" ")
-=end
-
 system( "#{target_pn.to_s} #{ARGV.join(' ')}" ) 
 

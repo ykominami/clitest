@@ -4,6 +4,7 @@ require "spec_helper"
 require "pathname"
 
 RSpec.describe Clitest do
+  let(:bin_pn) { Pathname.new(__FILE__).parent.parent.join("bin") }
   let(:spec_dir_pn) { Pathname.new(__FILE__).parent }
   let(:spec_dir) { top_dir_pn.to_s }
   let(:top_dir_pn) { spec_dir_pn.parent }
@@ -25,7 +26,7 @@ RSpec.describe Clitest do
   end
 
   it "has test_cmd" do
-    expect(cmdline_0.test_cmd_path_pn.to_s).to include("/home/ykominami/repo/clitest/bin/cmd.sh")
+    expect(cmdline_0.test_cmd_path_pn.to_s).to include( bin_pn.join("clitest").to_s )
   end
 
   context "create instance of class" do
@@ -57,16 +58,16 @@ RSpec.describe Clitest do
       @ret_cmd_0 = cmdline_0.make_cmdline_base(test_cmd_1, target_1_dir, result, optionx, param_name)
       @ret_cmd_1 = cmdline_0.make_cmdline_1(target_1_dir, result, optionx, param_name)
       @ret_cmd_2 = cmdline_0.make_cmdline_2(target_2_dir, result, optionx, param_name)
-      cmd_path = "/home/ykominami/repo/clitest/bin/cmd.sh"
-      test_dir = "/home/ykominami/repo/clitest/spec/test"
+      cmd_path = bin_pn.join("clitest").to_s
+      test_dir = bin_pn.parent.join("spec").join("test").to_s
       @args_1 = "#{cmd_path} #{test_dir} #{result} #{test_cmd_1} cmd1"
       @args_2 = "#{cmd_path} #{test_dir} #{result} #{test_cmd_2} cmd2"
     end
 
     it "of test_cmd_0" do
       expect(@ret_cmd_0).not_to eq(nil)
-      # expect(@ret_cmd_0).not_to include("cmd.sh")
-      expect(@ret_cmd_0).to include("cmd.sh")
+      # expect(@ret_cmd_0).not_to include("clitest")
+      expect(@ret_cmd_0).to include("clitest")
     end
     it "of test_cmd_1" do
       expect(@ret_cmd_1).not_to eq(nil)
