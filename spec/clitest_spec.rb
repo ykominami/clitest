@@ -31,51 +31,44 @@ RSpec.describe Clitest do
 
   context "create instance of class" do
     context "Cmdline nil nil" do
-      before(:each) do
-        @cmdline = Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_1, test_cmd_2])
-      end
       it "create instance with nil and nil" do
-        expect(@cmdline).not_to eq(nil)
-        # expect(@cmdline).to eq(nil)
+        cmdline = Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_1, test_cmd_2])
+        expect(cmdline).not_to eq(nil)
       end
     end
 
     context "Cmdline bin_dir nil" do
-      before(:each) do
-        @cmdline = Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_1, test_cmd_2])
-      end
       it "create instance with bin dir and nil" do
-        expect(@cmdline).not_to eq(nil)
+        cmdline = Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_1, test_cmd_2])
+        expect(cmdline).not_to eq(nil)
         # expect(@cmdline).to eq(nil)
       end
     end
   end
 
   context "make argument" do
-    before(:each)  do
-      target_1_dir = "cmd1"
-      target_2_dir = "cmd2"
-      @ret_cmd_0 = cmdline_0.make_cmdline_base(test_cmd_1, target_1_dir, result, optionx, param_name)
-      @ret_cmd_1 = cmdline_0.make_cmdline_1(target_1_dir, result, optionx, param_name)
-      @ret_cmd_2 = cmdline_0.make_cmdline_2(target_2_dir, result, optionx, param_name)
-      cmd_path = bin_pn.join("clitest").to_s
-      test_dir = bin_pn.parent.join("spec").join("test").to_s
-      @args_1 = "#{cmd_path} #{test_dir} #{result} #{test_cmd_1} cmd1"
-      @args_2 = "#{cmd_path} #{test_dir} #{result} #{test_cmd_2} cmd2"
-    end
+    let(:target_1_dir) {"cmd1"}
+    let(:target_2_dir) {"cmd2"}
+    let(:ret_cmd_0) {cmdline_0.make_cmdline_base(test_cmd_1, target_1_dir, result, optionx, param_name)}
+    let(:ret_cmd_1) {cmdline_0.make_cmdline_1(target_1_dir, result, optionx, param_name)}
+    let(:ret_cmd_2) {cmdline_0.make_cmdline_2(target_2_dir, result, optionx, param_name)}
+    let(:cmd_path) {bin_pn.join("clitest").to_s}
+    let(:test_dir) {bin_pn.parent.join("spec").join("test").to_s}
+    let(:args_1) {"#{cmd_path} #{test_dir} #{result} #{test_cmd_1} cmd1"}
+    let(:args_2) {"#{cmd_path} #{test_dir} #{result} #{test_cmd_2} cmd2"}
 
     it "of test_cmd_0" do
-      expect(@ret_cmd_0).not_to eq(nil)
+      expect(ret_cmd_0).not_to eq(nil)
       # expect(@ret_cmd_0).not_to include("clitest")
-      expect(@ret_cmd_0).to include("clitest")
+      expect(ret_cmd_0).to include("clitest")
     end
     it "of test_cmd_1" do
-      expect(@ret_cmd_1).not_to eq(nil)
-      expect(@ret_cmd_1).to include(@args_1)
+      expect(ret_cmd_1).not_to eq(nil)
+      expect(ret_cmd_1).to include(args_1)
     end
     it "of test_cmd_2" do
-      expect(@ret_cmd_2).not_to eq(nil)
-      expect(@ret_cmd_2).to include(@args_2)
+      expect(ret_cmd_2).not_to eq(nil)
+      expect(ret_cmd_2).to include(args_2)
     end
   end
 end
