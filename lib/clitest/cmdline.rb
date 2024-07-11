@@ -24,7 +24,7 @@ module Clitest
     # @param [String] cmd_name 実行ファイルを呼び出すシェルスクリプト名
     # @param [String] test_dir テストを実行するディレクトリ（@test_dir_pnaからの相対パス）
     # @param [Array] target_cmds 実行ファイル名の配列（ここで指定した名前で実行ファイルを呼び出せる必要がある-絶対パスまたは環境変数PATHでパスが指定されていること）
-    def initialize(bin_dir, cmd_name, test_dir, *target_cmds)
+    def initialize(bin_dir, cmd_name, test_dir, target_cmds)
       bin_dir = nil if bin_dir =~ /^\s*$/
       if bin_dir
         bin_dir_pn = Pathname.new(bin_dir)
