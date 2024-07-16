@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "ruby gem for test of cli."
   spec.homepage      = "https://ykominami.github.io/clitest"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.3")
 
   #  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
