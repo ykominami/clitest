@@ -51,7 +51,7 @@ RSpec.describe Clitest do
     let(:target_1_dir) { "cmd1" }
     let(:target_2_dir) { "cmd2" }
     let(:ret_cmd_first) { cmdline_first.make_cmdline_base(test_cmd_first, target_1_dir, result, optionx, param_name) }
-    let(:ret_cmd_second) { cmdline_first.make_cmdline_second(target_1_dir, result, optionx, param_name) }
+    let(:ret_cmd_second) { cmdline_first.make_cmdline_1(target_1_dir, result, optionx, param_name) }
     let(:ret_cmd_third) { cmdline_first.make_cmdline_2(target_2_dir, result, optionx, param_name) }
     let(:cmd_path) { bin_pn.join("clitest").to_s }
     let(:test_dir) { bin_pn.parent.join("spec").join("test").to_s }
