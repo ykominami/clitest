@@ -5,14 +5,18 @@ on: [push,pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      BUNDLE_WITH: development
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.0.0
+        bundler-cache: false
     - name: Run the default task
       run: |
         gem install bundler -v 2.2.7
+        bundle config with 'development'
         bundle install
         bundle exec rake

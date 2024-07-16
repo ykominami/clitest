@@ -6,10 +6,8 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 3.0
 
-AllCops:
-  NewCops: enable
 
 # 日本語のコメントを OK とする
 Style/AsciiComments:
@@ -36,7 +34,10 @@ Style/FrozenStringLiteralComment:
 Naming/VariableNumber:
   EnforcedStyle: 'snake_case'
 
-# class documentation commentのアラートを出さない
-Documentation:
-  Enabled: false
+Style/Documentation:
+  Enabled: true
+
+#  Department:
+#    Enabled: false # 無効にする
+#    # Severity: warning # 警告レベルを下げる (デフォルトはerror)
 

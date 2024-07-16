@@ -13,65 +13,65 @@ RSpec.describe Clitest do
   let(:test_root_dir) { test_root_dir_pn.to_s }
   let(:bin_dir_pn) { top_dir_pn.join("bin") }
   let(:bin_dir) { bin_dir_pn.to_s }
-  let(:test_cmd_1) { "ls" }
-  let(:test_cmd_2) { "data" }
+  let(:test_cmd_first) { "ls" }
+  let(:test_cmd_second) { "data" }
   let(:result) { "result.txt" }
   let(:optionx) { nil }
   let(:param_name) { nil }
 
-  let(:cmdline_0) { Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_1, test_cmd_2]) }
-  let(:cmdline_1) { Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_1, test_cmd_2]) }
+  let(:cmdline_first) { Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_first, test_cmd_second]) }
+  let(:cmdline_second) { Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_first, test_cmd_second]) }
 
   it "has a version number" do
     expect(Clitest::VERSION).not_to be_nil
   end
 
   it "has test_cmd" do
-    expect(cmdline_0.test_cmd_path_pn.to_s).to include(bin_pn.join("clitest").to_s)
+    expect(cmdline_first.test_cmd_path_pn.to_s).to include(bin_pn.join("clitest").to_s)
   end
 
-  context "create instance of class" do
-    context "Cmdline nil nil" do
+  context "with create instance of class" do
+    context "when Cmdline nil nil" do
       it "create instance with nil and nil" do
-        cmdline = Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_1, test_cmd_2])
+        cmdline = Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_first, test_cmd_second])
         expect(cmdline).not_to be_nil
       end
     end
 
-    context "Cmdline bin_dir nil" do
+    context "when Cmdline bin_dir nil" do
       it "create instance with bin dir and nil" do
-        cmdline = Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_1, test_cmd_2])
+        cmdline = Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_first, test_cmd_second])
         expect(cmdline).not_to be_nil
         # expect(@cmdline).to eq(nil)
       end
     end
   end
 
-  context "make argument" do
+  context "with make argument" do
     let(:target_1_dir) { "cmd1" }
     let(:target_2_dir) { "cmd2" }
-    let(:ret_cmd_0) { cmdline_0.make_cmdline_base(test_cmd_1, target_1_dir, result, optionx, param_name) }
-    let(:ret_cmd_1) { cmdline_0.make_cmdline_1(target_1_dir, result, optionx, param_name) }
-    let(:ret_cmd_2) { cmdline_0.make_cmdline_2(target_2_dir, result, optionx, param_name) }
+    let(:ret_cmd_first) { cmdline_first.make_cmdline_base(test_cmd_first, target_1_dir, result, optionx, param_name) }
+    let(:ret_cmd_second) { cmdline_first.make_cmdline_1(target_1_dir, result, optionx, param_name) }
+    let(:ret_cmd_third) { cmdline_first.make_cmdline_2(target_2_dir, result, optionx, param_name) }
     let(:cmd_path) { bin_pn.join("clitest").to_s }
     let(:test_dir) { bin_pn.parent.join("spec").join("test").to_s }
-    let(:args_1) { "#{cmd_path} #{test_dir} #{result} #{test_cmd_1} cmd1" }
-    let(:args_2) { "#{cmd_path} #{test_dir} #{result} #{test_cmd_2} cmd2" }
+    let(:args_first) { "#{cmd_path} #{test_dir} #{result} #{test_cmd_first} cmd1" }
+    let(:args_second) { "#{cmd_path} #{test_dir} #{result} #{test_cmd_second} cmd2" }
 
     it "of test_cmd_0" do
-      expect(ret_cmd_0).not_to be_nil
-      # expect(@ret_cmd_0).not_to include("clitest")
-      expect(ret_cmd_0).to include("clitest")
+      expect(ret_cmd_first).not_to be_nil
+      # expect(@ret_cmd_first).not_to include("clitest")
+      expect(ret_cmd_first).to include("clitest")
     end
 
-    it "of test_cmd_1" do
-      expect(ret_cmd_1).not_to be_nil
-      expect(ret_cmd_1).to include(args_1)
+    it "of test_cmd_first" do
+      expect(ret_cmd_second).not_to be_nil
+      expect(ret_cmd_second).to include(args_first)
     end
 
-    it "of test_cmd_2" do
-      expect(ret_cmd_2).not_to be_nil
-      expect(ret_cmd_2).to include(args_2)
+    it "of test_cmd_second" do
+      expect(ret_cmd_third).not_to be_nil
+      expect(ret_cmd_third).to include(args_second)
     end
   end
 end

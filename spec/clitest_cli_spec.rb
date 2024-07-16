@@ -28,8 +28,8 @@ RSpec.describe "command-line", type: :aruba do
     expect(cmdline_first.test_cmd_path_pn.to_s).to include(bin_pn.join("clitest").to_s)
   end
 
-  context "create instance of class" do
-    context "Cmdline nil nil" do
+  context "with create instance of class" do
+    context "when Cmdline nil nil" do
       let(:cmdline) { Clitest::Cmdline.new(nil, nil, test_root_dir, [test_cmd_first, test_cmd_second]) }
 
       it "create instance with nil and nil" do
@@ -38,7 +38,7 @@ RSpec.describe "command-line", type: :aruba do
       end
     end
 
-    context "Cmdline bin_dir nil" do
+    context "when Cmdline bin_dir nil" do
       let(:cmdline) { Clitest::Cmdline.new(bin_dir, nil, test_root_dir, [test_cmd_first, test_cmd_second]) }
 
       it "create instance with bin dir and nil" do
@@ -48,31 +48,31 @@ RSpec.describe "command-line", type: :aruba do
     end
   end
 
-  context "make argument" do
+  context "with make argument" do
     let(:target_1_dir) { "cmd1" }
     let(:target_2_dir) { "cmd2" }
-    let(:ret_cmd_0) { cmdline_first.make_cmdline_base(test_cmd_first, target_1_dir, result, optionx, param_name) }
-    let(:ret_cmd_1) { cmdline_first.make_cmdline_2(target_1_dir, result, optionx, param_name) }
-    let(:ret_cmd_2) { cmdline_first.make_cmdline_2(target_2_dir, result, optionx, param_name) }
+    let(:ret_cmd_first) { cmdline_first.make_cmdline_base(test_cmd_first, target_1_dir, result, optionx, param_name) }
+    let(:ret_cmd_second) { cmdline_first.make_cmdline_2(target_1_dir, result, optionx, param_name) }
+    let(:ret_cmd_third) { cmdline_first.make_cmdline_2(target_2_dir, result, optionx, param_name) }
     let(:cmd_path) { bin_pn.join("clitest").to_s }
     let(:test_dir) { bin_pn.parent.join("spec").join("test").to_s }
     let(:args_first) { "#{cmd_path} #{test_dir} #{result}" }
     let(:args_second) { "#{cmd_path} #{test_dir} #{result} #{test_cmd_second}" }
 
     it "of test_cmd_0" do
-      expect(ret_cmd_0).not_to be_nil
-      # expect(@ret_cmd_0).not_to include("clitest")
-      expect(ret_cmd_0).to include("clitest")
+      expect(ret_cmd_first).not_to be_nil
+      # expect(@ret_cmd_first).not_to include("clitest")
+      expect(ret_cmd_first).to include("clitest")
     end
 
     it "of test_cmd_first" do
-      expect(ret_cmd_1).not_to be_nil
-      expect(ret_cmd_1).to include(args_first)
+      expect(ret_cmd_second).not_to be_nil
+      expect(ret_cmd_second).to include(args_first)
     end
 
     it "of test_cmd_second" do
-      expect(ret_cmd_2).not_to be_nil
-      expect(ret_cmd_2).to include(args_second)
+      expect(ret_cmd_third).not_to be_nil
+      expect(ret_cmd_third).to include(args_second)
     end
   end
 end
