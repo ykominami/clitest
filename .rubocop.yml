@@ -1,11 +1,15 @@
 inherit_from: .rubocop_todo.yml
 
+require:
+  - rubocop-rake
+  - rubocop-rspec
+
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.4
 
-  #AllCops:
-#  NewCops: enable
+AllCops:
+  NewCops: enable
 
 # 日本語のコメントを OK とする
 Style/AsciiComments:

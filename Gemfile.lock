@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clitest (0.1.7)
+    clitest (0.1.9)
 
 GEM
   remote: https://rubygems.org/
@@ -14,10 +14,7 @@ GEM
       thor (~> 1.0)
     ast (2.4.2)
     bigdecimal (3.1.8)
-    binding_of_caller (1.0.1)
-      debug_inspector (>= 1.2.0)
     builder (3.3.0)
-    byebug (11.1.3)
     coderay (1.1.3)
     contracts (0.17)
     cucumber (9.2.0)
@@ -45,37 +42,48 @@ GEM
       cucumber-messages (> 19, < 25)
     cucumber-messages (22.0.0)
     cucumber-tag-expressions (6.1.0)
-    debug_inspector (1.2.0)
+    debug (1.9.2)
+      irb (~> 1.10)
+      reline (>= 0.3.8)
     diff-lcs (1.5.1)
-    ffi (1.17.0-x64-mingw-ucrt)
+    ffi (1.17.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86-linux-musl)
+    ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
+    io-console (0.7.2)
+    irb (1.14.0)
+      rdoc (>= 4.0.0)
+      reline (>= 0.4.2)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
-    method_source (1.1.0)
     mini_mime (1.1.5)
     multi_test (1.1.0)
     parallel (1.25.1)
-    parser (3.3.3.0)
+    parser (3.3.4.0)
       ast (~> 2.4.1)
       racc
     pluginator (1.5.0)
     pre-commit (0.40.0)
       pluginator (~> 1.5)
-    pry (0.14.2)
-      coderay (~> 1.1)
-      method_source (~> 1.0)
-    pry-byebug (3.10.1)
-      byebug (~> 11.0)
-      pry (>= 0.13, < 0.15)
-    pry-stack_explorer (0.6.1)
-      binding_of_caller (~> 1.0)
-      pry (~> 0.13)
+    psych (5.1.2)
+      stringio
     racc (1.8.0)
     rainbow (3.1.1)
     rake (13.2.1)
     rb-readline (0.5.5)
+    rdoc (6.7.0)
+      psych (>= 4.0.0)
     regexp_parser (2.9.2)
-    rexml (3.3.1)
+    reline (0.5.9)
+      io-console (~> 0.5)
+    rexml (3.3.2)
       strscan
     rspec (3.13.0)
       rspec-core (~> 3.13.0)
@@ -92,13 +100,13 @@ GEM
     rspec-support (3.13.1)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (1.64.1)
+    rubocop (1.65.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
+      regexp_parser (>= 2.4, < 3.0)
       rexml (>= 3.2.5, < 4.0)
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
@@ -107,28 +115,38 @@ GEM
       parser (>= 3.3.1.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
-    rubocop-rspec (3.0.2)
+    rubocop-rspec (3.0.3)
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
+    rufo (0.18.0)
+    stringio (3.1.1)
     strscan (3.1.0)
     sys-uname (1.3.0)
       ffi (~> 1.1)
     thor (1.3.1)
     unicode-display_width (2.5.0)
+    yard (0.9.36)
 
 PLATFORMS
-  x64-mingw-ucrt
-  x86_64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  ruby
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   aruba
   bundler (~> 2.0)
   clitest!
   coderay (~> 1.1.1)
+  debug
   pre-commit
-  pry
-  pry-byebug
-  pry-stack_explorer
   rake (~> 13.0)
   rb-readline
   rspec (~> 3.0)
@@ -136,6 +154,8 @@ DEPENDENCIES
   rubocop (~> 1.7)
   rubocop-rake
   rubocop-rspec
+  rufo
+  yard (~> 0.9.36)
 
 BUNDLED WITH
    2.5.14
