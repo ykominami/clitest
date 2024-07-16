@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "ruby gem for test of cli."
   spec.homepage      = "https://ykominami.github.io/clitest"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.7")
+  spec.required_ruby_version = Gem::Requirement.new(">= 3.0.0")
 
   #  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
@@ -35,18 +35,5 @@ Gem::Specification.new do |spec|
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
-  spec.add_development_dependency "aruba"
-  spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "coderay", "~> 1.1.1"
-  spec.add_development_dependency "pre-commit"
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "pry-byebug"
-  spec.add_development_dependency "pry-stack_explorer"
-  spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rb-readline"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "rspec_junit_formatter"
-  spec.add_development_dependency "rubocop", "~> 1.7"
-  spec.add_development_dependency "rubocop-rake"
-  spec.add_development_dependency "rubocop-rspec"
+  spec.metadata["rubygems_mfa_required"] = "true"
 end
