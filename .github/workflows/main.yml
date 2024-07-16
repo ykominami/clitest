@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-    - BUNDLE_WITH: "development"
+      BUNDLE_WITH: development
     steps:
     - uses: actions/checkout@v4
     - name: Set up Ruby
@@ -17,5 +17,6 @@ jobs:
     - name: Run the default task
       run: |
         gem install bundler -v 2.2.7
+        bundle config with 'development'
         bundle install
         bundle exec rake
