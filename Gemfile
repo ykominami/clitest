@@ -10,9 +10,13 @@ gem "pre-commit"
 gem "rake", "~> 13.0"
 gem "rb-readline"
 
+group :test, optional: true do
+  gem "coderay", "~> 1.1.1"
+
+end
+
 group :development, :test, optional: true do
   gem "aruba"
-  gem "coderay", "~> 1.1.1"
   gem "debug"
   # gem "pry"
   # gem "pry-byebug"

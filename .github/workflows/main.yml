@@ -17,5 +17,6 @@ jobs:
     - name: Run the default task
       run: |
         gem install bundler -v 2.2.7
+        bundle config with 'development'
         bundle install
         bundle exec rake
