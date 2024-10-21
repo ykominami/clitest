@@ -22,7 +22,7 @@ group :development, :test, optional: true do
   # gem "pry-stack_explorer"
   gem "rspec", "~> 3.0"
   gem "rspec_junit_formatter"
-  gem "rubocop", "~> 1.66"
+  gem "rubocop", "~> 1.67"
   gem "rubocop-rake"
   gem "rubocop-rspec"
   gem "rufo"
