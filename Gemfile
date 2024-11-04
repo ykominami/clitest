@@ -14,8 +14,8 @@ gem "rb-readline"
 # end
 
 group :development, :test, optional: true do
-  gem "coderay", "~> 1.1.1"
   gem "aruba"
+  gem "coderay", "~> 1.1.1"
   gem "debug"
   # gem "pry"
   # gem "pry-byebug"

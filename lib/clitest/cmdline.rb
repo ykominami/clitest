@@ -45,6 +45,10 @@ module Clitest
     # @param [Array] param_names コマンドラインオプション群
     # @return [String] コマンドライン文字列
     def make_cmdline_base(target_cmd, target_dir, result_file, optionx, *param_names)
+      # raise
+      puts "make_cmdline_base target_cmd=#{target_cmd}"
+      raise unless target_cmd
+
       params = param_names.join(" ")
 
       "#{@test_cmd_path_pn} #{@test_dir_pn} #{result_file} #{target_cmd} #{target_dir} #{optionx} #{params}"
