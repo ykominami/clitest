@@ -59,17 +59,20 @@ RSpec.describe Clitest do
     let(:args_second) { "#{cmd_path} #{test_dir} #{result} #{test_cmd_second} cmd2" }
 
     it "of test_cmd_0" do
+      # puts "ret_cmd_first=#{ret_cmd_first}"
       expect(ret_cmd_first).not_to be_nil
       # expect(@ret_cmd_first).not_to include("clitest")
       expect(ret_cmd_first).to include("clitest")
     end
 
     it "of test_cmd_first" do
+      # puts "ret_cmd_second=#{ret_cmd_second}"
       expect(ret_cmd_second).not_to be_nil
       expect(ret_cmd_second).to include(args_first)
     end
 
     it "of test_cmd_second" do
+      # puts "ret_cmd_third=#{ret_cmd_third}"
       expect(ret_cmd_third).not_to be_nil
       expect(ret_cmd_third).to include(args_second)
     end
