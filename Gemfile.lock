@@ -135,7 +135,7 @@ DEPENDENCIES
   rb-readline
   rspec (~> 3.0)
   rspec_junit_formatter
-  rubocop (~> 1.68)
+  rubocop (~> 1.72)
   rubocop-rake
   rubocop-rspec
   rufo
