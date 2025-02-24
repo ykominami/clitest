@@ -109,8 +109,9 @@ GEM
     rubocop-rake (0.7.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
-    rubocop-rspec (3.2.0)
-      rubocop (~> 1.61)
+    rubocop-rspec (3.5.0)
+      lint_roller (~> 1.1)
+      rubocop (~> 1.72, >= 1.72.1)
     ruby-progressbar (1.13.0)
     rufo (0.18.0)
     stringio (3.1.5)
@@ -123,6 +124,7 @@ GEM
     yard (0.9.37)
 
 PLATFORMS
+  x86_64-linux
 
 DEPENDENCIES
   aruba
