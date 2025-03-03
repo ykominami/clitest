@@ -45,7 +45,7 @@ Everyone interacting in the Clitest project's codebases, issue trackers, chat ro
 |  見出し1  |  見出し2  |
 |-----------|-----------|
 |Michael Spencer from AI Supremacy|Michael Spencer from AI Supremacy <aisupremacy+agi@substack.com>|
-||<swyx@substack.com>|
+|swyx_substack.com|<swyx@substack.com>|
 |codeconfessions_substack.com|codeconfessions@substack.com|
 |Michael Spencer and Alex McFarland from AI Supremacy|Michael Spencer and Alex McFarland from AI Supremacy <aisupremacy+guest-posts@substack.com>|
 |newsletter_mail.beehiiv.com|marktechpost-newsletter@mail.beehiiv.com|
