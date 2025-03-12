@@ -54,7 +54,7 @@ GEM
     irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.10.1)
+    json (2.10.2)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     mini_mime (1.1.5)
@@ -123,6 +123,7 @@ GEM
     yard (0.9.37)
 
 PLATFORMS
+  x86_64-linux
 
 DEPENDENCIES
   aruba
