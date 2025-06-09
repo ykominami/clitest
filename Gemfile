@@ -7,7 +7,7 @@ gemspec
 
 gem "bundler", "~> 2.0"
 gem "pre-commit"
-gem "rake", "~> 13.0"
+gem "rake", "~> 13.3"
 gem "rb-readline"
 
 # group :test, optional: true do
