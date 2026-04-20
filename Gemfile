@@ -26,5 +26,5 @@ group :development, :test, optional: true do
   gem "rubocop-rake"
   gem "rubocop-rspec"
   gem "rufo"
-  gem "yard", "~> 0.9.38"
+  gem "yard", "~> 0.9.43"
 end
